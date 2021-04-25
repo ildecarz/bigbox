@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+
+    <div class="container mt-4">
+        <h1>{{ box.name }}</h1>
+        <hr>
+        <h4>Descripción:</h4>
+        <p>{{ box.description }}</p>
+        <h3>Precio de venta: ${{ box.price }}</h3>
+        
+        <h2>Actividades:</h2>
+
+            {% for act in activities %}
+                <ul>
+                    <li><p>{{ act.name }}</p> </li>
+                </ul>
+            {% endfor %}
+
+            <a class="btn btn-outline-info mb-4" href="{% url 'activity-list-view' box.id %}">Actividades</a>
+    </div>
+
+
+{% endblock content %}

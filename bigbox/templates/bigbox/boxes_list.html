@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<div class="container mt-4">
+    <h1>Box disponibles:</h1>
+</div>
+
+{% for box in boxes %}
+
+    <div class="container mt-4">
+        <li>
+            <h2><a class="box-info" href="{% url 'box-detail-view' box.id %}">{{ box.name }}</a></h2>
+        </li>
+        
+        <hr>
+    </div>
+    
+{% endfor %}
+
+    
+
+{% endblock content %}
