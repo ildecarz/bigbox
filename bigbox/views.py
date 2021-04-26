@@ -41,7 +41,7 @@ class ActivityDetailView(DetailView):
     def get(self, *args, **kwargs):
         pk1 = kwargs.get('pk1', None)
         pk2 = kwargs.get(None, 'pk2')
-        return super(QuizList, self).get(*args, **kwargs)
+        return super(ActivityDetailView, self).get(*args, **kwargs)
     
     
 
