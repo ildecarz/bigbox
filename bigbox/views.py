@@ -36,7 +36,6 @@ class ActivityListView(ListView):
         pk1 = kwargs.get('pk1', None)
         pk2 = kwargs.get('pk2', None)
         return super(ActivityListView, self).get(*args, **kwargs)
-
     
 
 class ActivityDetailView(DetailView):
