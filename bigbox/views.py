@@ -32,6 +32,8 @@ class ActivityListView(ListView):
     context_object_name = 'activities'
     paginate_by = 20
 
+    
+
 class ActivityDetailView(DetailView):
 
     model = Activity
