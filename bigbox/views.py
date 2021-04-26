@@ -40,7 +40,7 @@ class ActivityDetailView(DetailView):
 
     def get(self, *args, **kwargs):
         pk1 = kwargs.get('pk1', None)
-        pk2 = kwargs.get(None, 'pk2')
+        pk2 = kwargs.get('pk2', None,)
         return super(ActivityDetailView, self).get(*args, **kwargs)
     
     
