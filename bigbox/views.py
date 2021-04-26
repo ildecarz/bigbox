@@ -35,7 +35,7 @@ class ActivityListView(ListView):
 class ActivityDetailView(DetailView):
 
     model = Activity
-    template_name = 'bigbox/activity_detail.html'
+    template_name = 'bigbox/box_detail.html'
     
 
 class BoxSlugDetailView(DetailView):
