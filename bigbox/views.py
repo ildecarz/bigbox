@@ -26,7 +26,7 @@ class BoxDetailView(DetailView):
         return context
 
     def get(self, *args, **kwargs):
-        pk1 = kwargs.get('pk1', None)
+        pk1 = kwargs.get('pk', None)
         return super(BoxDetailView, self).get(*args, **kwargs)
 
 class ActivityListView(ListView):
@@ -37,7 +37,7 @@ class ActivityListView(ListView):
     paginate_by = 20
 
     def get(self, *args, **kwargs):
-        pk1 = kwargs.get('pk1', None)
+        pk1 = kwargs.get('pk', None)
         return super(ActivityListView, self).get(*args, **kwargs)
 
 
@@ -47,7 +47,7 @@ class ActivityDetailView(DetailView):
     template_name = 'bigbox/boxes_detail.html'
 
     def get(self, *args, **kwargs):
-        pk1 = kwargs.get('pk1', None)
+        pk1 = kwargs.get('pk', None)
         pk2 = kwargs.get('pk2', None,)
         return super(ActivityDetailView, self).get(*args, **kwargs)
     
