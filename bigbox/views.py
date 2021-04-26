@@ -35,7 +35,7 @@ class ActivityListView(ListView):
     def get(self, *args, **kwargs):
         pk1 = kwargs.get('pk1', None)
         pk2 = kwargs.get('pk2', None)
-        return super(Activity, self).get(*args, **kwargs)
+        return super(ActivityListView, self).get(*args, **kwargs)
 
     
 
