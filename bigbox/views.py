@@ -25,12 +25,20 @@ class BoxDetailView(DetailView):
         context['activities'] = list(Activity.objects.values('name')[:5])
         return context
 
+    def get(self, *args, **kwargs):
+        pk1 = kwargs.get('pk1', None)
+        return super(BoxDetailView, self).get(*args, **kwargs)
+
 class ActivityListView(ListView):
 
     model = Activity
     template_name = 'bigbox/activity_list.html'
     context_object_name = 'activities'
     paginate_by = 20
+
+    def get(self, *args, **kwargs):
+        pk1 = kwargs.get('pk1', None)
+        return super(BoxListView, self).get(*args, **kwargs)
 
 
 class ActivityDetailView(DetailView):
