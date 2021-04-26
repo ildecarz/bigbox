@@ -3,8 +3,8 @@ from .views import BoxListView, BoxDetailView, ActivityListView, ActivityDetailV
 
 urlpatterns = [
     path('base_url/box/', BoxListView.as_view(), name='box-list-view'),
-    path('base_url/box/<int:pk>/', BoxDetailView.as_view(), name='box-detail-view'),
-    path('base_url/box/<int:pk>/activity/', ActivityListView.as_view(), name='activity-list-view'),
+    path('base_url/box/<int:pk1>/', BoxDetailView.as_view(), name='box-detail-view'),
+    path('base_url/box/<int:pk1>/activity/', ActivityListView.as_view(), name='activity-list-view'),
     path('base_url/box/<int:pk1>/activity/<int:pk2>/', ActivityDetailView.as_view(), name='activity-detail-view'),
     path('base_url/box/<slug>/', BoxSlugDetailView.as_view(), name= 'slug-view')
 ]
