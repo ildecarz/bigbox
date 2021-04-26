@@ -44,8 +44,8 @@ class BoxSlugDetailView(DetailView):
     template_name = 'bigbox/boxes_detail.html'
 
     context = super().get_context_data(**kwargs)
-        context['activities'] = list(Activity.objects.values('name')[:5])
-        return context
+    context['activities'] = list(Activity.objects.values('name')[:5])
+    return context
 
   
     
