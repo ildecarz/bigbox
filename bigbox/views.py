@@ -38,7 +38,7 @@ class ActivityDetailView(DetailView):
     model = Activity
     template_name = 'bigbox/boxes_detail.html'
 
-    def get(*args, **kwargs):
+    def get(self, *args, **kwargs):
         obj = Box.objects.get(Box, pk=id)
         obj2 = Activity.objects.get(Activity, pk=id)
         return super(ActivityDetailView, self).get(*args, **kwargs)
