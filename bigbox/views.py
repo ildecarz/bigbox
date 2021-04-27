@@ -36,10 +36,6 @@ class ActivityListView(ListView):
     context_object_name = 'activities'
     paginate_by = 20
 
-    def get(self, *args, **kwargs):
-        pk1 = kwargs.get('pk', None)
-        return super(ActivityListView, self).get(*args, **kwargs)
-
 
 class ActivityDetailView(DetailView):
 
