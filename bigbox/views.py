@@ -37,11 +37,6 @@ class ActivityDetailView(DetailView):
 
     model = Activity
     template_name = 'bigbox/activity_detail.html'   
-
-    def get(self, *args, **kwargs):
-        pk = kwargs.get(int:'pk', None)
-        pk2 = kwargs.get(int:'pk2', None)
-        return super(ActivityDetailView, self).get(*args, **kwargs)
     
 
 class BoxSlugDetailView(DetailView):
