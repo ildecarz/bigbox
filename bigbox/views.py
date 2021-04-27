@@ -39,7 +39,7 @@ class ActivityDetailView(DetailView):
     template_name = 'bigbox/activity_detail.html'   
 
     def get(self, *args, **kwargs):
-        pk = kwargs.get('pk1', None)
+        pk = kwargs.get('pk', None)
         pk2 = kwargs.get('pk2', None)
         return super(ActivityDetailView, self).get(*args, **kwargs)
     
