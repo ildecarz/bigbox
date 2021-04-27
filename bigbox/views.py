@@ -33,7 +33,7 @@ class ActivityListView(ListView):
     paginate_by = 20
 
     def get_context_data(self, **kwargs):
-        context = super(ActivityDetailView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         page_alt = Activity.objects.get(id=self.kwargs.get('pk2', ''))
         context['page_alt'] = page_alt
         return context
