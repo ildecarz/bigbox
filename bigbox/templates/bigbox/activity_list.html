@@ -9,7 +9,7 @@
 {% for act in activities %}
 
     <div class="container mt-4">
-        <p><a class="activity-info" href="{{ page_alt }}">{{ act.name }}</a></p>
+        <p><a class="activity-info" href="{% url 'activity-detail-view' act.id %}">{{ act.name }}</a></p>
         <hr>
     </div>
     
