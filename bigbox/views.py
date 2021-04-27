@@ -35,9 +35,11 @@ class BoxActivityDetailView(DetailView):
     template_name = 'bigbox/boxactivity_detail.html'
     context_object_name = 'activities'
 
-    context = super().get_context_data(**kwargs)
-    context['boxes'] = list(Box.objects.values('name')[:1])
-    return context
+    def get_context_data(self, **kwargs):
+
+        context = super().get_context_data(**kwargs)
+        context['boxes'] = list(Box.objects.values('name')[:1])
+        return context
 
 
 
