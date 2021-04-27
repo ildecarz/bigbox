@@ -37,6 +37,12 @@ class ActivityDetailView(DetailView):
 
     model = Activity
     template_name = 'bigbox/activity_detail.html'   
+
+    def get_context_data(self, **kwargs):
+        context = super(ActivityDetailView, self).get_context_data(**kwargs)
+        page_alt = Activity.objects.get(id=self.kwargs.get('pk2', ''))
+        context['page_alt'] = page_alt
+        return context
     
 
 class BoxSlugDetailView(DetailView):
