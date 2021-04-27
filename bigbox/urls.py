@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import BoxListView, BoxDetailView, ActivityListView, ActivityDetailView, BoxSlugDetailView, BoxActivityDetailView
+from .views import BoxListView, BoxDetailView, ActivityListView, BoxSlugDetailView, BoxActivityDetailView
 
 urlpatterns = [
     path('base_url/box/', BoxListView.as_view(), name='box-list-view'),
