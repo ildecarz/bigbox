@@ -35,14 +35,14 @@ class ActivityListView(ListView):
 
 class BoxActivityDetailView(DetailView):
 
-    model = Box
-    template_name = 'bigbox/activity_detail.html'  
+    model = Activity
+    template_name = 'bigbox/activity_detail.html'
+    context_object_name = 'activities'  
 
     def get_context_data(self, **kwargs):
 
         context = super().get_context_data(**kwargs)
-        context['page_alt']= Activity.objects.get(id=self.kwargs.get('pk_2'))
-        context['activities'] = Activity.objects.values('name', 'description')[:1]
+        context['page_alt']= Box.objects.get(id=self.kwargs.get('pk_1'))
         return context
 
 class BoxSlugDetailView(DetailView):
