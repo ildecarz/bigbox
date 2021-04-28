@@ -33,11 +33,17 @@ class ActivityListView(ListView):
     paginate_by = 20
 
 
-class ActivityDetailView(DetailView):
+class BoxActivityDetailView(DetailView):
 
-    model = Activity
-    template_name = 'bigbox/activity_detail.html'   
-    
+    model = Box
+    template_name = 'bigbox/activity_detail.html'  
+
+    def get_context_data(self, **kwargs):
+
+        context = super().get_context_data(**kwargs)
+        context['page_alt']= Activity.objects.get(id=self.kwargs.get('pk_2'))
+        context['activities'] = Activity.objects.values('name', 'description')[:1]
+        return context
 
 class BoxSlugDetailView(DetailView):
 
