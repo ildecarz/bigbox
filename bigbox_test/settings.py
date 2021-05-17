@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'django_extensions',
     # Local apps
     'bigbox',
+    'polls',
 ]
 
 MIDDLEWARE = [
