@@ -133,3 +133,9 @@ STATIC_URL = '/static/'
 
 django_heroku.settings(locals())
 
+INTERNAL_IPS = [
+    'https://mybigboxtest.herokuapp.com/base_url/box',
+]
+ 
+
+
