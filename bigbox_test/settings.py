@@ -48,7 +48,8 @@ INSTALLED_APPS = [
     # Local apps
     'bigbox',
     'polls',
-    'snippets'
+    'snippets',
+    'historical_data',
 ]
 
 MIDDLEWARE = [
