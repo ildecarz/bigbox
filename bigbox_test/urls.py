@@ -30,8 +30,7 @@ urlpatterns = [
     # path('__debug__/', include(debug_toolbar.urls)),
     path('polls/', include('polls.urls')),
     path('', include('snippets.urls')),
-    path("graphql", csrf_exempt(GraphQLView.as_view(graphiql=True))),
-    
+    path("graphql", csrf_exempt(GraphQLView.as_view(graphiql=True, schema=schema))),    
 ]
 
 urlpatterns += [

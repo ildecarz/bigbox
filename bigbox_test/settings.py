@@ -153,6 +153,3 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 10
 }
 
-GRAPHENE = {
-    "SCHEMA": "django_root.schema.schema"
-}
