@@ -20,6 +20,8 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls import url, include
 from django.conf.urls.static import static
+from graphene_django.views import GraphQLView
+from django.views.decorators.csrf import csrf_exempt
 
 
 urlpatterns = [
@@ -28,6 +30,8 @@ urlpatterns = [
     # path('__debug__/', include(debug_toolbar.urls)),
     path('polls/', include('polls.urls')),
     path('', include('snippets.urls')),
+    path("graphql", csrf_exempt(GraphQLView.as_view(graphiql=True))),
+    
 ]
 
 urlpatterns += [

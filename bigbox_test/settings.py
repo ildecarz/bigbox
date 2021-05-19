@@ -50,6 +50,8 @@ INSTALLED_APPS = [
     'polls',
     'snippets',
     'historical_data',
+    'ingredients',
+    "graphene_django",
 ]
 
 MIDDLEWARE = [
@@ -149,4 +151,8 @@ DEBUG_TOOLBAR_CONFIG = {
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 10
+}
+
+GRAPHENE = {
+    "SCHEMA": "django_root.schema.schema"
 }
