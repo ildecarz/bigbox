@@ -22,6 +22,8 @@ from django.conf.urls import url, include
 from django.conf.urls.static import static
 from graphene_django.views import GraphQLView
 from django.views.decorators.csrf import csrf_exempt
+from ingredients.schema import schema
+
 
 
 urlpatterns = [

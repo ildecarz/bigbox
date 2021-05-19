@@ -153,3 +153,6 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 10
 }
 
+GRAPHENE = {
+    "SCHEMA": "bigbox_test.schema.schema"
+}
