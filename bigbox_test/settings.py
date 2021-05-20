@@ -51,7 +51,8 @@ INSTALLED_APPS = [
     'snippets',
     'historical_data',
     'ingredients',
-    "graphene_django",
+    'graphene_django',
+    'blog',
 ]
 
 MIDDLEWARE = [
