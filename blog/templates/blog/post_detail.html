@@ -4,7 +4,7 @@
     <div class="container">
         <article class="post">
             <aside class="actions">
-                <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"></a>
+                <a class="btn btn-default" href="{% url 'post_detail' pk=post.pk %}"></a>
                 </aside>
                 {% if post.published_date %}
                     <time class="date">
