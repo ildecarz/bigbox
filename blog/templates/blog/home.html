@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<br>
+    <div class="container mt-4">
+        <h1>Bienvenidos</h1>
+        <h2>Estas son las vistas que puedes visitar!!!</h2>
+        <hr>
+    </div>
+
+    <div class="container mt-4">
+        <li>
+            <h2><a href="{% url 'box-detail-view' box.id %}">{{ box.name }}</a></h2>
+            <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
+            <h2><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></h2>
+            <h2><a href="{% url 'api-views' %}">API</a></h2>
+            <h2><a href="{% url 'graphql-view' %}">Graphql</a></h2>
+        </li>
+        
+        <hr>
+    </div>
+
+{% endblock content %}
