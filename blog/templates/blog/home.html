@@ -10,9 +10,9 @@
 
     <div class="container mt-4">
         <li>
-            <h2><a href="{% url 'box-detail-view' box.id %}">Big Box</a></h2>
-            <h2><a href="{% url 'post_detail' pk=post.pk %}">Blog</a></h2>
-            <h2><a href="{% url 'polls:detail' question.id %}">Polls</a></h2>
+            <h2><a href="{% url 'box-list-view' %}">Big Box</a></h2>
+            <h2><a href="{% url 'post_list' %}">Blog</a></h2>
+            <h2><a href="{% url 'index' %}">Polls</a></h2>
             <h2><a href="{% url 'api-views' %}">API</a></h2>
             <h2><a href="{% url 'graphql-view' %}">Graphql</a></h2>
         </li>
