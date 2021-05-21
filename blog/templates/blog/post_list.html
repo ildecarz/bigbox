@@ -7,6 +7,8 @@
         <br>
         <div class="row">
             <div class="col">
+                <a class="btn btn-outline-info mb-4" href="{% url 'post_new' %}">Nuevo Post</a>
+                <br>
                 {% for post in posts %}
                     <article class="post">
                         <time class="date">
