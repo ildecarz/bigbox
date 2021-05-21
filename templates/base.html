@@ -17,14 +17,14 @@
         <div class="container-fluid">
           <a class="navbar-brand" href="{% url 'box-list-view' %}">BigBox</a>
         </div>
+        <div class="navbar-nav">
+            <a class="nav-item nav-link" href="{% url 'box-list-view' %}">BigBox</a>
+            <a class="nav-item nav-link" href="/">Blog</a>
+            <a class="nav-item nav-link" href="/polls">Polls</a>
+            <a class="nav-item nav-link" href="/api">API</a>
+            <a class="nav-item nav-link" href="/graphql">Graphql</a>
+        </div>
       </nav>
-      <div class="navbar-nav">
-                  <a class="nav-item nav-link" href="{% url 'box-list-view' %}">BigBox</a>
-                  <a class="nav-item nav-link" href="/post">Blog</a>
-                  <a class="nav-item nav-link" href="/polls">Polls</a>
-                  <a class="nav-item nav-link" href="/api">API</a>
-                  <a class="nav-item nav-link" href="/graphql">Graphql</a>
-              </div>
     {% block content %}
     {% endblock content %}
     <!-- Optional JavaScript; choose one of the two! -->
