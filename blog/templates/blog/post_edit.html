@@ -1,7 +1,10 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h2>New post</h2>
+<div class="container mt-4">
+    <h1>Nuevo Post</h1>
+    <hr>
+    <br>
     <form method="POST" class="post-form">{% csrf_token %}
         {{ form.as_p }}
         <button type="submit" class="save btn btn-outline-info mb-4">Guardar</button>
