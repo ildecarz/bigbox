@@ -32,7 +32,7 @@ urlpatterns = [
     # path('__debug__/', include(debug_toolbar.urls)),
     path('polls/', include('polls.urls')),
     path('api', include('snippets.urls'), name='api-views'),
-    path('blog', include('blog.urls')),
+    path('', include('blog.urls')),
     path("graphql", csrf_exempt(GraphQLView.as_view(graphiql=True, schema=schema)), name='graphql-view'),    
 ]
 
