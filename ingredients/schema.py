@@ -14,23 +14,23 @@ class IngredientType(DjangoObjectType):
         model = Ingredient
         fields = ("id", "name", "notes", "category")
 
-class CreateIngredients(graphene.Mutation):
+class CategoryMutation(graphene.Mutation):
     class Arguments:
-        name = graphene.String(required=True)
         id = graphene.ID()
+        name = graphene.String(required=True)
+        
 
-    ok = graphene.Boolean()
-    ingredients = graphene.Field(IngredientType)
+    category = graphene.Field(IngredientType)
 
     @classmethod
     def mutate(cls, root, info, name, id):
-        ingredients = Ingredient.objects.get(pk=id)
-        ingredients.name = name
-        Ingredient.save()
-        return CreateIngredients(ingredients=ingredients)
+        category = Category.objects.get(id=id)
+        category.name = name
+        Category.save()
+        return CategoryMutation(category=category)
 
-class MyMutations(graphene.ObjectType):
-    create_ingredients = CreateIngredients.Field()
+class Mutation(graphene.ObjectType):
+    update_category = CategoryMutation.Field()
 
 class Query(graphene.ObjectType):
     all_ingredients = graphene.List(IngredientType)
@@ -46,4 +46,4 @@ class Query(graphene.ObjectType):
         except Category.DoesNotExist:
             return None
 
-schema = graphene.Schema(query=Query, mutation=MyMutations)
+schema = graphene.Schema(query=Query, mutation=Mutation)
