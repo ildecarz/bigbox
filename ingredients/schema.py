@@ -1,7 +1,8 @@
 import graphene
 from graphene_django import DjangoObjectType
 
-from .models import Category, Ingredient
+from ingredients.models import Category, Ingredient
+
 
 class CategoryType(DjangoObjectType):
     class Meta:
@@ -12,6 +13,24 @@ class IngredientType(DjangoObjectType):
     class Meta:
         model = Ingredient
         fields = ("id", "name", "notes", "category")
+
+class CreateIngredients(graphene.Mutation):
+    class Arguments:
+        name = graphene.String(required=True)
+        id = graphene.ID()
+
+    ok = graphene.Boolean()
+    ingredients = graphene.Field(IngredientType)
+
+    @classmethod
+    def mutate(cls, root, info, name, id):
+        ingredients = Ingredient.objects.get(pk=id)
+        ingredients.name = name
+        Ingredient.save()
+        return CreateIngredients(ingredients=ingredients)
+
+class MyMutations(graphene.ObjectType):
+    create_ingredients = CreateIngredients.Field()
 
 class Query(graphene.ObjectType):
     all_ingredients = graphene.List(IngredientType)
@@ -27,4 +46,4 @@ class Query(graphene.ObjectType):
         except Category.DoesNotExist:
             return None
 
-schema = graphene.Schema(query=Query)
+schema = graphene.Schema(query=Query, mutation=MyMutations)
