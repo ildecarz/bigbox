@@ -20,7 +20,7 @@ class CategoryMutation(graphene.Mutation):
         name = graphene.String(required=True)
         
 
-    category = graphene.Field(IngredientType)
+    category = graphene.Field(CategoryType)
 
     @classmethod
     def mutate(cls, root, info, name, id):
