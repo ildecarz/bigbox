@@ -1,5 +1,6 @@
 import graphene
 from graphene_django import DjangoObjectType
+from graphene_django import DjangoListField
 
 from ingredients.models import Category, Ingredient
 
@@ -7,7 +8,7 @@ from ingredients.models import Category, Ingredient
 class CategoryType(DjangoObjectType):
     class Meta:
         model = Category
-        fields = ("id", "name", "ingredients")
+        fields = ("id", "name")
 
 class IngredientType(DjangoObjectType):
     class Meta:
@@ -23,11 +24,10 @@ class CategoryMutation(graphene.Mutation):
     category = graphene.Field(CategoryType)
 
     @classmethod
-    def mutate(self, root, info, name, id):
-        ingredients = Ingredient.objects.get(id=id)
-        ingredients.name = name
-        Ingredient.save(self)
-        return CategoryMutation(ingredients=ingredients)
+    def mutate(self, root, info, name):
+        category = Category(name=name)
+        category.save()
+        return CategoryMutation(category=category)
 
 class Mutation(graphene.ObjectType):
     update_ingredients = CategoryMutation.Field()
@@ -41,9 +41,6 @@ class Query(graphene.ObjectType):
         return Ingredient.objects.select_related("category").all()
 
     def resolve_category_by_name(root, info, name):
-        try:
-            return Category.objects.get(name=name)
-        except Category.DoesNotExist:
-            return None
+        return Category.objects.get(name=name)
 
 schema = graphene.Schema(query=Query, mutation=Mutation)
