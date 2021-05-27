@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import Box, Activity
 from django.views.generic import ListView, DetailView
+from django.conf import settings
 
 #from django.core.paginator import Paginator
 #from django.db.models import Count
@@ -30,7 +31,8 @@ class ActivityListView(ListView):
     model = Activity
     template_name = 'bigbox/activity_list.html'
     context_object_name = 'activities'
-    paginate_by = 20
+    # paginate_by = 20
+    paginate_by = settings.PAGE_SIZE_ILD
 
 
 class BoxActivityDetailView(DetailView):

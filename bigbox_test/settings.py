@@ -157,3 +157,5 @@ REST_FRAMEWORK = {
 GRAPHENE = {
     "SCHEMA": "bigbox_test.schema.schema"
 }
+
+PAGE_SIZE_ILD = int(os.environ.get('PAGE_SIZE_ILD', '40'))
