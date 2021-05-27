@@ -26,7 +26,7 @@ class IngredientMutation(graphene.Mutation):
     def mutate(self, root, info, name, id):
         ingredients = Ingredient.objects.get(id=id)
         ingredients.name = name
-        Ingredient.save()
+        Ingredient.save(self)
         return IngredientMutation(ingredients=ingredients)
 
 class Mutation(graphene.ObjectType):
