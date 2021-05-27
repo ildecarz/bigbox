@@ -24,13 +24,14 @@ class CategoryMutation(graphene.Mutation):
     category = graphene.Field(CategoryType)
 
     @classmethod
-    def mutate(self, root, info, name):
-        category = Category(name=name)
+    def mutate(self, root, info, name, id):
+        category = Category.objects.get(id=id)
+        category.name = name
         category.save()
         return CategoryMutation(category=category)
 
 class Mutation(graphene.ObjectType):
-    update_ingredients = CategoryMutation.Field()
+    update_category = CategoryMutation.Field()
 
 class Query(graphene.ObjectType):
     all_ingredients = graphene.List(IngredientType)
