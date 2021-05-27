@@ -23,7 +23,7 @@ class IngredientMutation(graphene.Mutation):
     ingredients = graphene.Field(IngredientType)
 
     @classmethod
-    def mutate(cls, root, info, name, id):
+    def mutate(self, root, info, name, id):
         ingredients = Ingredient.objects.get(id=id)
         ingredients.name = name
         Ingredient.save()
