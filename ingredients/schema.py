@@ -14,23 +14,23 @@ class IngredientType(DjangoObjectType):
         model = Ingredient
         fields = ("id", "name", "notes", "category")
 
-class CategoryMutation(graphene.Mutation):
+class IngredientMutation(graphene.Mutation):
     class Arguments:
         id = graphene.ID()
         name = graphene.String(required=True)
         
 
-    category = graphene.Field(CategoryType)
+    ingredients = graphene.Field(IngredientType)
 
     @classmethod
     def mutate(cls, root, info, name, id):
-        category = Category.objects.get(id=id)
-        category.name = name
-        Category.save()
-        return CategoryMutation(category=category)
+        ingredients = Ingredient.objects.get(id=id)
+        ingredients.name = name
+        Ingredient.save()
+        return IngredientMutation(ingredients=ingredients)
 
 class Mutation(graphene.ObjectType):
-    update_category = CategoryMutation.Field()
+    update_ingredients = IngredientMutation.Field()
 
 class Query(graphene.ObjectType):
     all_ingredients = graphene.List(IngredientType)
