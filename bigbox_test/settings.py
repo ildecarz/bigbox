@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+
+from django.db.models.fields import DateTimeField
+from snippets.models import Snippet
 import django_heroku
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -149,9 +152,12 @@ DEBUG_TOOLBAR_CONFIG = {
     'SHOW_TOOLBAR_CALLBACK': lambda x: True
 }
 
+
+PAGE_API_SIZE_ILD = int(os.environ.get('PAGE_API_SIZE_ILD', '40'))
+
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE': 10
+    'PAGE_SIZE': PAGE_API_SIZE_ILD
 }
 
 GRAPHENE = {
@@ -159,3 +165,5 @@ GRAPHENE = {
 }
 
 PAGE_SIZE_ILD = int(os.environ.get('PAGE_SIZE_ILD', '40'))
+
+
