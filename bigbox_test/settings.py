@@ -153,11 +153,16 @@ DEBUG_TOOLBAR_CONFIG = {
 }
 
 
-PAGE_API_SIZE_ILD = int(os.environ.get('PAGE_API_SIZE_ILD', '40'))
+# PAGE_API_SIZE_ILD = int(os.environ.get('PAGE_API_SIZE_ILD', '40'))
+
+# REST_FRAMEWORK = {
+#     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+#     'PAGE_SIZE': PAGE_API_SIZE_ILD
+# }
 
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE': PAGE_API_SIZE_ILD
+    'PAGE_SIZE': 10
 }
 
 GRAPHENE = {
